@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8f0ec">
+<title>Pixie Iyakin :p</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #fbf5f0;
+  --paper-deep: #f2e5df;
+  --rose: #b85d72;
+  --rose-dark: #8e3f56;
+  --rose-pale: #e8bdc4;
+  --plum: #432c3d;
+  --muted: #8b737d;
+  --green: #78836a;
+  --line: rgba(67,44,61,.16);
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "DM Sans", Arial, sans-serif;
+  --hand: "Caveat", cursive;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+body {
+  margin: 0; background: var(--paper); color: var(--plum);
+  font: 16px/1.8 var(--sans); overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+::selection { background: var(--rose-pale); color: var(--plum); }
+.grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 10; opacity: .13;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+}
+.top-note { text-align:center; padding: 1rem 1rem .5rem; color:var(--muted); font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; }
+.hero {
+  min-height: 91svh; padding: 2rem 1.4rem 5rem; display:flex; align-items:center; justify-content:center;
+  text-align:center; position:relative; isolation:isolate;
+}
+.hero::before, .hero::after { content:""; position:absolute; border:1px solid var(--rose-pale); border-radius:50%; z-index:-1; }
+.hero::before { width:min(76vw, 370px); aspect-ratio:1; opacity:.55; }
+.hero::after { width:min(88vw, 430px); aspect-ratio:1; opacity:.3; }
+.hero-inner { max-width: 34rem; }
+.eyebrow { font-size:.7rem; letter-spacing:.25em; text-transform:uppercase; color:var(--rose-dark); margin:0 0 1.3rem; }
+.flower-mark { width:75px; height:75px; margin:0 auto 1.4rem; color:var(--rose); animation: float 5s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0) rotate(-3deg)} 50%{transform:translateY(-7px) rotate(3deg)} }
+h1,h2,h3 { font-family:var(--serif); font-weight:400; }
+h1 { font-size:clamp(4.3rem, 19vw, 7.4rem); letter-spacing:-.065em; line-height:.95; margin:0; }
+h1 em { color:var(--rose); font-weight:400; }
+.hero-copy { max-width: 23rem; margin:1.5rem auto 0; color:var(--muted); font-family:var(--serif); font-size:1.1rem; font-style:italic; line-height:1.7; }
+.scroll-link { display:inline-flex; align-items:center; gap:.7rem; margin-top:2.5rem; text-decoration:none; color:var(--rose-dark); font-size:.72rem; letter-spacing:.15em; text-transform:uppercase; }
+.scroll-link span { font-size:1.3rem; transition:transform .25s; }
+.scroll-link:hover span { transform:translateY(4px); }
+.section { padding:5.5rem 1.4rem; }
+.inner { max-width: 39rem; margin:auto; }
+.section-kicker { color:var(--rose-dark); font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; margin:0 0 .9rem; }
+h2 { font-size:clamp(2.2rem, 9vw, 3.6rem); line-height:1.12; letter-spacing:-.035em; margin:0 0 1.5rem; }
+.intro { color:var(--muted); font-family:var(--serif); font-style:italic; font-size:1.12rem; max-width:29rem; margin:0 0 3rem; }
+.memory { display:grid; grid-template-columns: 2.7rem 1fr; gap:1rem; padding:1.55rem 0; border-top:1px solid var(--line); }
+.memory:last-child { border-bottom:1px solid var(--line); }
+.memory-num { color:var(--rose); font-family:var(--serif); font-style:italic; font-size:1.2rem; padding-top:.15rem; }
+.memory h3 { font-size:1.5rem; margin:0 0 .45rem; }
+.memory p { margin:0; color:#705b68; font-size:.96rem; line-height:1.9; }
+.pullquote { margin:3.5rem 0 0; padding:1.5rem 1rem; text-align:center; font:italic 1.6rem/1.5 var(--serif); color:var(--rose-dark); }
+.pullquote span { display:block; font:1.8rem var(--hand); margin-top:.5rem; }
+
+/* A small, phone-friendly photo album */
+.photo-section { background:#fffaf6; }
+.photo-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.85rem; }
+.photo-card { position:relative; margin:0; padding:.55rem .55rem .85rem; background:#fff; border:1px solid rgba(142,63,86,.14); box-shadow:0 8px 24px rgba(67,44,61,.07); transform:rotate(var(--tilt, -1deg)); }
+.photo-card:nth-child(2n) { --tilt:1.3deg; }
+.photo-card:nth-child(3n) { --tilt:-1.6deg; }
+.photo-open { display:block; width:100%; border:0; padding:0; background:var(--paper-deep); cursor:pointer; overflow:hidden; aspect-ratio:4/5; }
+.photo-open img { width:100%; height:100%; display:block; object-fit:cover; transition:transform .35s ease; }
+.photo-open:hover img { transform:scale(1.04); }
+.photo-card figcaption { padding:.6rem .25rem 0; font:1.35rem/1.1 var(--hand); text-align:center; color:var(--rose-dark); }
+.photo-hint { color:var(--muted); font-size:.82rem; margin:1.25rem 0 0; }
+.lightbox { position:fixed; inset:0; z-index:20000; display:none; align-items:center; justify-content:center; padding:1.25rem; background:rgba(39,24,35,.88); }
+.lightbox.open { display:flex; }
+.lightbox-inner { position:relative; max-width:min(92vw,700px); max-height:88svh; text-align:center; }
+.lightbox img { display:block; max-width:100%; max-height:78svh; object-fit:contain; border:8px solid #fffaf6; box-shadow:0 18px 60px rgba(0,0,0,.25); }
+.lightbox-caption { color:#fff5f1; font:1.6rem var(--hand); margin:.65rem 0 0; }
+.lightbox-close { position:absolute; top:-1rem; right:-.8rem; width:2.5rem; height:2.5rem; border:0; border-radius:50%; background:#fffaf6; color:var(--plum); font-size:1.5rem; cursor:pointer; }
+#confetti { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:15000; }
+@media(min-width:560px) { .photo-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:1rem; } }
+
+.music-section { background:var(--paper-deep); position:relative; overflow:hidden; }
+.music-section::after { content:"♡"; position:absolute; right:-.1em; bottom:-.7em; font:15rem/1 var(--serif); color:rgba(184,93,114,.08); pointer-events:none; }
+.music-card { display:flex; gap:1.3rem; align-items:center; padding:1.25rem; background:rgba(251,245,240,.72); border:1px solid rgba(142,63,86,.14); border-radius:5px 22px 5px 22px; position:relative; z-index:1; }
+.album {
+  width:100px; height:100px; flex:none; border-radius:50%; display:grid; place-items:center;
+  background: repeating-radial-gradient(circle, #3f2b3a 0 2px, #52374a 3px 4px);
+  box-shadow:0 8px 20px rgba(67,44,61,.18); position:relative;
+}
+.album::before { content:""; width:29px; height:29px; background:var(--rose); border:5px solid var(--paper-deep); border-radius:50%; }
+.album.playing { animation: spin 8s linear infinite; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.track-label { color:var(--rose-dark); text-transform:uppercase; letter-spacing:.16em; font-size:.62rem; margin:0 0 .2rem; }
+.track-title { font:1.55rem/1.25 var(--serif); margin:0; }
+.track-artist { color:var(--muted); font-size:.88rem; margin:.2rem 0 .8rem; }
+.play-btn { border:0; background:var(--rose-dark); color:#fff8f4; padding:.65rem 1rem; border-radius:999px; font:500 .78rem var(--sans); cursor:pointer; transition:transform .2s, background .2s; }
+.play-btn:hover { background:var(--plum); transform:translateY(-1px); }
+.music-note { color:var(--muted); font-size:.8rem; margin:1.2rem 0 0; }
+audio { display:none; }
+.letter-section { padding-bottom:7rem; }
+.letter-top { text-align:center; margin-bottom:2.3rem; }
+.letter-top .flower-small { color:var(--rose); font-size:1.5rem; }
+.letter-paper {
+  background:#fffaf6; border:1px solid rgba(142,63,86,.16); padding:clamp(1.4rem, 6vw, 3rem);
+  box-shadow:0 18px 50px rgba(67,44,61,.06); position:relative;
+}
+.letter-paper::before { content:""; position:absolute; inset:9px; border:1px solid rgba(184,93,114,.12); pointer-events:none; }
+.letter-content { position:relative; z-index:1; }
+.salutation { font:2rem var(--hand); color:var(--rose-dark); margin:0 0 1.2rem; }
+.letter-content p { margin:0 0 1.2rem; font-size:.96rem; line-height:2; }
+.letter-content .signoff { font:2rem/1.3 var(--hand); color:var(--rose-dark); margin:1.6rem 0 0; }
+.question-wrap { text-align:center; margin-top:3rem; padding-top:2rem; border-top:1px solid var(--line); }
+.question-wrap .tiny { color:var(--muted); text-transform:uppercase; letter-spacing:.18em; font-size:.65rem; margin-bottom:.8rem; }
+.question { font:italic clamp(1.8rem, 7vw, 2.7rem)/1.25 var(--serif); margin:0 auto 1.7rem; max-width:25rem; }
+.answers { display:flex; justify-content:center; flex-wrap:wrap; gap:.8rem; }
+.answer {
+  min-width:115px; border:1px solid var(--rose-dark); border-radius:999px; padding:.85rem 1.7rem;
+  font:500 .85rem var(--sans); cursor:pointer; transition:transform .2s, background .2s, color .2s;
+}
+.answer:hover { transform:translateY(-2px); }
+.answer.no { position:relative; z-index:5; }
+.answer.no.running-away { position:fixed; z-index:9999; margin:0; transition:left .16s ease, top .16s ease; }
+.answer.yes { background:var(--rose-dark); color:#fff8f4; }
+.answer.yes:hover { background:var(--plum); }
+.answer.no { background:transparent; color:var(--rose-dark); }
+.answer.no:hover { background:var(--paper-deep); }
+.answer:focus-visible, .play-btn:focus-visible, .scroll-link:focus-visible { outline:3px solid var(--rose); outline-offset:4px; }
+.reply { min-height:3.8rem; margin:1.3rem auto 0 !important; max-width:25rem; color:var(--rose-dark); font:1.65rem/1.35 var(--hand); }
+.footer { text-align:center; padding:0 1.5rem 3rem; color:var(--muted); font-size:.72rem; letter-spacing:.08em; }
+.footer span { color:var(--rose); }
+.reveal { opacity:0; transform:translateY(18px); transition:opacity .9s ease, transform .9s ease; }
+.reveal.visible { opacity:1; transform:none; }
+@media (max-width:480px) {
+  .section { padding:4.5rem 1.25rem; }
+  .music-card { gap:1rem; padding:1rem; }
+  .album { width:78px; height:78px; }
+  .track-title { font-size:1.35rem; }
+  .memory { grid-template-columns:2rem 1fr; gap:.65rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { scroll-behavior:auto !important; animation:none !important; transition:none !important; }
+  .reveal { opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="top-note">a little something, just for you</div>
+
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <svg class="flower-mark" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <path d="M50 89 C51 70 49 56 50 44" stroke="#78836a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M50 72 C34 72 25 62 24 50 C39 52 47 61 50 72Z" fill="#9ba58b" stroke="#78836a" stroke-width="1.4"/>
+      <path d="M50 80 C63 76 72 66 72 55 C60 58 52 67 50 80Z" fill="#9ba58b" stroke="#78836a" stroke-width="1.4"/>
+      <path d="M50 47 C34 45 29 29 34 17 C42 25 47 26 50 22 C54 26 60 25 67 17 C72 30 66 45 50 47Z" fill="#d8899a" stroke="#b85d72" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M50 23 C48 31 48 39 50 45 M50 23 C53 31 53 39 50 45" stroke="#f8e8e5" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <p class="eyebrow">for someone special</p>
+    <h1>for <em>pixie</em></h1>
+    <p class="hero-copy">Some things are easier to write down when the heart has been holding them for a while.</p>
+    <a class="scroll-link" href="#story">take your time <span>↓</span></a>
+  </div>
+</header>
+
+<main>
+  <section class="section" id="story">
+    <div class="inner">
+      <p class="section-kicker reveal">chapter one · the memories</p>
+      <h2 class="reveal">The little things<br>that stayed with me.</h2>
+      <p class="intro reveal">It's funny how the quietest moments can leave the biggest place in your heart.</p>
+
+      <article class="memory reveal">
+        <div class="memory-num">01</div>
+        <div>
+          <h3>The small stuff</h3>
+          <p>The random conversations, laughing at things that probably weren't even that funny, and all the ordinary moments that somehow became special because they were with you.</p>
+        </div>
+      </article>
+      <article class="memory reveal">
+        <div class="memory-num">02</div>
+        <div>
+          <h3>Right beside you</h3>
+          <p>Walking beside you, reaching for your hand, watching movies together. Sometimes I remember the quiet parts most — when nothing extraordinary was happening, and being there was enough.</p>
+        </div>
+      </article>
+      <article class="memory reveal">
+        <div class="memory-num">03</div>
+        <div>
+          <h3>What I'm thankful for</h3>
+          <p>I'm thankful our paths crossed, Pixie. Things may be different now, but I still treasure what we shared. I wouldn't erase those memories just because our story got complicated.</p>
+        </div>
+      </article>
+      <blockquote class="pullquote reveal">“Some people stay with you,<br>even in the quiet.”<span>— a little truth from me ♡</span></blockquote>
+    </div>
+  </section>
+
+
+  <section class="section photo-section" id="photos">
+    <div class="inner">
+      <p class="section-kicker reveal">a little photo album</p>
+      <h2 class="reveal">Five little pieces<br>of us. ♡</h2>
+      <p class="intro reveal">A tiny place for the moments I want to keep close. Tap any photo to see it bigger.</p>
+      <div class="photo-grid reveal">
+        <figure class="photo-card"><button class="photo-open" type="button" aria-label="Open photo one"><img src="./photo1.jpg" alt="A favorite memory together, photo one" loading="lazy"></button><figcaption>one of my favorites</figcaption></figure>
+        <figure class="photo-card"><button class="photo-open" type="button" aria-label="Open photo two"><img src="./photo2.jpg" alt="A favorite memory together, photo two" loading="lazy"></button><figcaption>your little smile</figcaption></figure>
+        <figure class="photo-card"><button class="photo-open" type="button" aria-label="Open photo three"><img src="./photo3.jpg" alt="A favorite memory together, photo three" loading="lazy"></button><figcaption>just being us</figcaption></figure>
+        <figure class="photo-card"><button class="photo-open" type="button" aria-label="Open photo four"><img src="./photo4.jpg" alt="A favorite memory together, photo four" loading="lazy"></button><figcaption>a moment to keep</figcaption></figure>
+        <figure class="photo-card"><button class="photo-open" type="button" aria-label="Open photo five"><img src="./photo5.jpg" alt="A favorite memory together, photo five" loading="lazy"></button><figcaption>always a memory ♡</figcaption></figure>
+      </div>
+      <p class="photo-hint reveal"> mwhehehehe <strong> mwhehehehehe </strong> mwehehehe <strong> mwehehehehehe </strong>:3</p>
+    </div>
+  </section>
+
+  <section class="section music-section" id="music">
+    <div class="inner">
+      <p class="section-kicker reveal">chapter two · a song for you</p>
+      <h2 class="reveal">This one reminds<br>me of you.</h2>
+      <div class="music-card reveal">
+        <div class="album" id="album" aria-hidden="true"></div>
+        <div>
+          <p class="track-label">a song I chose for you</p>
+          <p class="track-title">Leonora</p>
+          <p class="track-artist">Sugarcane</p>
+          <button class="play-btn" id="playBtn" type="button">▶ Play our song</button>
+        </div>
+      </div>
+      <audio id="songAudio" preload="metadata">
+        <source src="./music.mp3" type="audio/mpeg">
+        Your browser does not support audio playback.
+      </audio>
+      <div class="music-help" id="musicHelp" hidden>
+        <p class="music-note">Couldn't find or play <strong>music.mp3</strong>. On some phones, local-file pages can't access nearby files. Choose the audio file directly below.</p>
+        <label class="play-btn choose-label" for="audioPicker">Choose song from phone</label>
+        <input id="audioPicker" type="file" accept="audio/*,.mp3,.m4a,.wav,.ogg" hidden>
+      </div>
+      <p class="music-note reveal" id="musicNote">Tap play, get comfortable, and take your time. ♡</p>
+    </div>
+  </section>
+
+  <section class="section letter-section" id="letter">
+    <div class="inner">
+      <div class="letter-top reveal">
+        <div class="flower-small" aria-hidden="true">✿</div>
+        <p class="section-kicker">chapter three · what i wanted to say</p>
+        <h2>a letter, from me<br>to you.</h2>
+      </div>
+      <div class="letter-paper reveal">
+        <div class="letter-content">
+          <p class="salutation">hello, pixie :3</p>
+          <p>wala nang pasikot-sikot pa bwhahahaha, direct to the point na agad 😛 i miss you.</p>
+          <p>honestly, hindi ko alam kung bakit sa’yo lang ako naging ganito. ewan ko ba kung ginayuma mo ako o ano, pero kahit anong gawin ko, ikaw at ikaw pa rin talaga. i miss you more than i can explain, and i think i’ve missed almost everything about you: your presence, your smile, our conversations, our little moments, and even the ordinary things we used to do together.</p>
+          <p>i hope you’re doing okay over there, lalo na kapag may period ka ehe. pero kidding aside, i genuinely hope you’re taking care of yourself. i hope you’re happy, and i hope life has been treating you well. and of course, i hope you miss me too :^[</p>
+          <p>i’m writing this because there’s something i’ve wanted to ask you for a while now. pixie, may i court you again? can you give me another chance to show you how much i truly love you?</p>
+          <p>i know this might sound a little unexpected, pero gusto ko nang maging honest sa nararamdaman ko. mahirap para sa akin na itago pa, especially when talking to you still makes me happy in ways i can’t explain. kahit simpleng conversation lang natin, kahit random stories or pangungumusta lang, somehow, you still manage to make my day better. sometimes, i find myself smiling at my phone because of you, and honestly, nakakahiya na rin minsan bwhahahaha.</p>
+          <p>one of the things i appreciate most about you is how you still show concern for me. you might not realize it, but those little things mean so much to me. every time you ask if i’m okay or show that you care, it reminds me why i fell for you in the first place. and somehow, it makes me fall for you even more.</p>
+          <p>i still remember how shy you used to be whenever someone teased us. bwhahahaha, natatandaan ko pa kung paano bumibilis ang lakad mo kapag may nang-aasar sa atin. those little moments may seem ordinary, but they’re memories i’ll always cherish. whenever i remember them, i can’t help but smile because they remind me of the time when everything between us felt so simple and happy.</p>
+          <p>i miss those moments, pixie. i miss laughing with you, talking to you about random things, and sharing little pieces of our days. i miss the comfort of having you around and the happiness that came with even the smallest interactions between us. more than anything, i miss you—not just the memories we made, but you as a person. i miss your personality, your little habits, your reactions, and all the little things that make you who you are.</p>
+          <p>sometimes, i wonder if you still remember those moments the way i do. i wonder if there are times when something reminds you of us and makes you smile, even just for a second. because for me, there are still moments when a random memory of you crosses my mind, and suddenly, i’m smiling to myself like an idiot. bwhahahaha, look what you’ve done to me, pixie. >:( </p>
+          <p>i know things may not be exactly the same as they used to be, and i’m not expecting everything to go back to how it was overnight. but if you give me another chance, i want to make new memories with you. i want to know you even more, listen to your stories, learn about the things that make you happy, and be there for the little moments that matter to you.</p>
+          <p>i don’t want my feelings to remain just words. i want to show you through my actions how much you mean to me. i want to keep learning, growing, and becoming a better version of myself. i know i have my flaws, and i know there may be things i still need to improve, but my feelings for you are genuine. i’m willing to put effort into showing you that, not just by saying i love you, but by making sure my actions reflect it, too.</p>
+          <p>and honestly, that’s one of the reasons i made this website for you. :3 i wanted to create something special, something that could express the feelings i sometimes struggle to put into words. every little detail is here because it reminds me of you or of the memories we’ve shared. i hope that when you look through it, you’ll smile, even just a little. i hope you’ll feel how much thought and effort i put into making it for you.</p>
+          <p>bwhahahaha, imagine making a whole website just to confess your feelings. who would’ve thought i’d actually do something like this? 😭 but i guess some people are just worth the effort, and for me, you’re one of them.</p>
+          <p>pixie, i still love you. and i don’t want to say that just because i miss you or because talking to you makes me happy. i want you to know that my feelings are something i’ve thought about, something i’ve come to understand, and something i genuinely want to express to you.</p>
+          <p>i don’t know exactly what the future holds for us, but i know what i want to ask you today. i want the chance to court you again, to show you my intentions, and to prove through my actions that my feelings are real.</p>
+          <p>i miss you so much, pixie. as in sobra bwhahahaha, nakakahiya na ’to pero sige na nga, nandito na tayo, eh. might as well say everything i’ve been keeping to myself.</p>
+          <p>iloveyou, pixie. :3 and i really, really hope you know how much you mean to me.</p>
+          <p class="signoff">with all my sincerity,<br>someone who still cares ♡</p>
+
+          <div class="question-wrap">
+            <p class="tiny">so, there’s just one thing left to ask</p>
+            <h3 class="question">can i court you again?</h3>
+            <div class="answers" role="group" aria-label="Your answer">
+              <button class="answer yes" type="button" data-answer="yes">Yes ♡</button>
+              <button class="answer no" type="button" data-answer="no">No</button>
+            </div>
+            <p class="reply" id="reply" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">made with care, <span>♡</span> and a little hope.</footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close photo">×</button>
+    <img id="lightboxImage" src="" alt="Expanded memory">
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<script>
+document.documentElement.classList.add("js");
+
+// Gently reveal sections as they enter the screen.
+const revealItems = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealItems.forEach(item => revealObserver.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add("visible"));
+}
+
+// Play music.mp3 from this same folder, with a phone-file-picker fallback.
+const audio = document.getElementById("songAudio");
+const playBtn = document.getElementById("playBtn");
+const album = document.getElementById("album");
+const musicHelp = document.getElementById("musicHelp");
+const musicNote = document.getElementById("musicNote");
+const audioPicker = document.getElementById("audioPicker");
+let pickedAudioUrl = null;
+
+playBtn.addEventListener("click", async () => {
+  if (audio.paused) {
+    try {
+      await audio.play();
+      musicHelp.hidden = true;
+    } catch (error) {
+      musicHelp.hidden = false;
+      musicNote.textContent = "Your browser couldn't open music.mp3 automatically. Choose the song file from your phone instead.";
+    }
+  } else {
+    audio.pause();
+  }
+});
+audio.addEventListener("play", () => {
+  playBtn.textContent = "Ⅱ Pause song";
+  album.classList.add("playing");
+});
+audio.addEventListener("pause", () => {
+  playBtn.textContent = "▶ Play our song";
+  album.classList.remove("playing");
+});
+audio.addEventListener("ended", () => {
+  playBtn.textContent = "▶ Play again";
+  album.classList.remove("playing");
+});
+audio.addEventListener("error", () => {
+  musicHelp.hidden = false;
+  musicNote.textContent = "Couldn't load music.mp3. Check the filename, or choose the audio file from your phone.";
+});
+audioPicker.addEventListener("change", () => {
+  const file = audioPicker.files && audioPicker.files[0];
+  if (!file) return;
+  if (pickedAudioUrl) URL.revokeObjectURL(pickedAudioUrl);
+  pickedAudioUrl = URL.createObjectURL(file);
+  audio.src = pickedAudioUrl;
+  audio.load();
+  musicHelp.hidden = true;
+  playBtn.textContent = "▶ Play our song";
+  musicNote.textContent = "Song selected: " + file.name;
+});
+
+// The answer stays on this page; it does not send a message anywhere.
+const reply = document.getElementById("reply");
+const noButton = document.querySelector('.answer.no');
+const yesButton = document.querySelector('.answer.yes');
+let noIsRunning = false;
+
+function moveNoButton() {
+  // Keep the whole button inside the visible screen, including on phones.
+  const margin = 12;
+  const maxX = Math.max(margin, window.innerWidth - noButton.offsetWidth - margin);
+  const maxY = Math.max(margin, window.innerHeight - noButton.offsetHeight - margin);
+  const x = margin + Math.random() * Math.max(0, maxX - margin);
+  const y = margin + Math.random() * Math.max(0, maxY - margin);
+  noButton.style.left = `${x}px`;
+  noButton.style.top = `${y}px`;
+}
+
+noButton.addEventListener('click', (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  if (!noIsRunning) {
+    noIsRunning = true;
+    noButton.classList.add('running-away');
+  }
+  moveNoButton();
+  reply.textContent = 'hehe, try the other one? 🥹♡';
+});
+
+// On desktop, it also dodges when she tries to hover over it.
+noButton.addEventListener('pointerenter', (event) => {
+  if (event.pointerType === 'mouse' && noIsRunning) moveNoButton();
+});
+
+window.addEventListener('resize', () => {
+  if (noIsRunning) moveNoButton();
+});
+
+yesButton.addEventListener('click', () => {
+  noIsRunning = false;
+  noButton.classList.remove('running-away');
+  noButton.style.left = '';
+  noButton.style.top = '';
+  document.querySelectorAll('.answer').forEach(item => {
+    item.setAttribute('aria-pressed', String(item === yesButton));
+  });
+  reply.textContent = 'Thank you for giving us a chance to talk about it. One step at a time. ♡';
+  launchConfetti();
+});
+
+
+// Photo album: tap a picture to open it; tap the X or backdrop to close.
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxCaption = document.getElementById("lightboxCaption");
+const lightboxClose = document.getElementById("lightboxClose");
+document.querySelectorAll(".photo-open").forEach(button => {
+  button.addEventListener("click", () => {
+    const img = button.querySelector("img");
+    const caption = button.closest("figure").querySelector("figcaption");
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt;
+    lightboxCaption.textContent = caption.textContent;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+  });
+});
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  document.body.style.overflow = "";
+  lightboxImage.src = "";
+}
+lightboxClose.addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", event => { if (event.target === lightbox) closeLightbox(); });
+document.addEventListener("keydown", event => { if (event.key === "Escape") closeLightbox(); });
+
+// Confetti celebration when Yes is clicked (no external library needed).
+const confettiCanvas = document.getElementById("confetti");
+const confettiCtx = confettiCanvas.getContext("2d");
+const confettiPalette = ["#b85d72", "#d8899a", "#e8bdc4", "#8e3f56", "#f2c6a0", "#9ba58b", "#fff3ea"];
+let confettiBits = [];
+let confettiFrameActive = false;
+function resizeConfetti() {
+  const dpr = window.devicePixelRatio || 1;
+  confettiCanvas.width = Math.floor(window.innerWidth * dpr);
+  confettiCanvas.height = Math.floor(window.innerHeight * dpr);
+  confettiCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+resizeConfetti();
+window.addEventListener("resize", resizeConfetti);
+function makeConfettiBit(x, y, angle, speed) {
+  return { x, y, vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+    size: 4 + Math.random() * 7, color: confettiPalette[Math.floor(Math.random() * confettiPalette.length)],
+    rotation: Math.random() * Math.PI * 2, spin: (Math.random() - .5) * .22,
+    shape: Math.random() < .28 ? "heart" : (Math.random() < .5 ? "rect" : "circle"),
+    age: 0, life: 150 + Math.random() * 80 };
+}
+function drawConfettiHeart(ctx, size) {
+  ctx.beginPath(); ctx.moveTo(0, size * .35);
+  ctx.bezierCurveTo(-size, -size * .2, -size * .5, -size * .9, 0, -size * .4);
+  ctx.bezierCurveTo(size * .5, -size * .9, size, -size * .2, 0, size * .35); ctx.fill();
+}
+function animateConfetti() {
+  confettiCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+  confettiBits.forEach(bit => {
+    bit.age++; bit.vy += .12; bit.vx *= .995; bit.x += bit.vx; bit.y += bit.vy; bit.rotation += bit.spin;
+    confettiCtx.save(); confettiCtx.globalAlpha = Math.max(0, 1 - bit.age / bit.life);
+    confettiCtx.translate(bit.x, bit.y); confettiCtx.rotate(bit.rotation); confettiCtx.fillStyle = bit.color;
+    if (bit.shape === "heart") drawConfettiHeart(confettiCtx, bit.size);
+    else if (bit.shape === "rect") confettiCtx.fillRect(-bit.size / 2, -bit.size / 4, bit.size, bit.size / 2);
+    else { confettiCtx.beginPath(); confettiCtx.arc(0, 0, bit.size / 3, 0, Math.PI * 2); confettiCtx.fill(); }
+    confettiCtx.restore();
+  });
+  confettiBits = confettiBits.filter(bit => bit.age < bit.life && bit.y < window.innerHeight + 30);
+  if (confettiBits.length) requestAnimationFrame(animateConfetti);
+  else { confettiFrameActive = false; confettiCtx.clearRect(0, 0, window.innerWidth, window.innerHeight); }
+}
+function launchConfetti() {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const w = window.innerWidth, h = window.innerHeight;
+  for (let i = 0; i < 90; i++) {
+    const side = i % 2 === 0 ? w * .08 : w * .92;
+    const angle = -Math.PI / 2 + (Math.random() - .5) * 1.35;
+    confettiBits.push(makeConfettiBit(side, h + 8, angle, 6 + Math.random() * 8));
+  }
+  for (let i = 0; i < 70; i++) {
+    confettiBits.push(makeConfettiBit(Math.random() * w, -10 - Math.random() * h * .3, Math.PI / 2 + (Math.random() - .5), 1 + Math.random() * 2));
+  }
+  if (!confettiFrameActive) { confettiFrameActive = true; requestAnimationFrame(animateConfetti); }
+}
+
+</script>
+</body>
+</html>
